@@ -11,6 +11,7 @@ def create_order(request):
 
     if serializer.is_valid():
         order = serializer.save()
+        print("Order created with ID:", order.id)
 
         publish_order_event({
             "order_id": str(order.id),
